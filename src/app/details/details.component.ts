@@ -29,10 +29,14 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
         </p>
       </section>
       <section class="listing-features">
-        <h2 class="section-heading">About this housing location</h2>
+        <h2 class="section-heading">About this house</h2>
         <ul>
           <li>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-bed"></i>
+            {{ housingLocation?.availableUnits }}
+          </li>
+          <li>
+            <i class="fa-solid fa-bath"></i>
             {{ housingLocation?.availableUnits }}
           </li>
           <li><i class="fa-solid fa-wifi"></i> {{ housingLocation?.wifi }}</li>

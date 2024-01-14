@@ -1,3 +1,7 @@
+article {
+  margin: 1rem;
+}
+
 .listing-photo {
   height: 600px;
   width: 50%;
@@ -10,6 +14,7 @@
   font-size: 48pt;
   font-weight: bold;
   margin-bottom: 15px;
+  color: var(--black-color);
 }
 
 .listing-location::before {
@@ -31,6 +36,9 @@
   margin-bottom: 20px;
 }
 
+.listing-features ul {
+  margin-left: 1rem;
+}
 .listing-features li {
   font-size: 14pt;
 }
@@ -39,11 +47,27 @@ li {
   list-style-type: none;
   display: inline-block;
   margin-right: 2rem;
+  color: var(--black-light-color);
 }
 
-.listing-apply .section-heading {
+/* .listing-apply .section-heading {
   font-size: 18pt;
   margin-bottom: 15px;
+  color: var(--black-light-color);
+} */
+
+.listing-apply {
+  margin-top: 2rem;
+}
+
+.listing-apply h2 {
+  font-size: 24pt;
+  margin-bottom: 1.5rem;
+  color: var(--black-color);
+}
+
+form {
+  margin-left: 1rem;
 }
 
 label,
@@ -69,8 +93,10 @@ input {
 
 .one {
   color: var(--secondary-color);
-  font-size: 24pt;
-  margin-top: 2rem;
+  font-size: 18pt;
+  margin-right: 2rem;
+  margin-top: 4rem;
+  width: 40%;
 }
 
 @media (max-width: 1024px) {

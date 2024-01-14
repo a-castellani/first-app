@@ -10,6 +10,8 @@ body {
   font-family: "Be Vietnam Pro", sans-serif;
 }
 :root {
+  --black-color: #2f404e;
+  --black-light-color: #4c5152;
   --primary-color: #605dc8;
   --secondary-color: #8b89e6;
   --accent-color: #e8e7fa;

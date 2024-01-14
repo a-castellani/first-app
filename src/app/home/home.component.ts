@@ -9,18 +9,27 @@ import { HousingService } from '../housing.service';
   standalone: true,
   imports: [CommonModule, HousingLocationComponent],
   template: `
-    <section>
+    <section class="app-title">
+      <h1>Find your dream home.</h1>
+    </section>
+    <section class="search-form">
       <form>
-        <input type="text" placeholder="Filter by city" #filter />
+        <input
+          type="text"
+          placeholder="Search by city"
+          #filter
+          (keydown.enter)="filterResults(filter.value, $event)"
+        />
         <button
           class="primary"
           type="button"
-          (click)="filterResults(filter.value)"
+          (click)="filterResults(filter.value, $event)"
         >
           Search
         </button>
       </form>
     </section>
+
     <section class="results">
       <app-housing-location
         *ngFor="let housingLocation of filteredLocationList"
@@ -40,7 +49,8 @@ export class HomeComponent {
     this.filteredLocationList = this.housingLocationList;
   }
 
-  filterResults(text: string) {
+  filterResults(text: string, e: any) {
+    e.preventDefault();
     if (!text) {
       this.filteredLocationList = this.housingLocationList;
       return;

@@ -1,3 +1,22 @@
+.app-title {
+  font-size: 3.2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  color: var(--black-color);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
 .results {
   display: grid;
   column-gap: 14px;
@@ -13,7 +32,7 @@ input[type="text"] {
   border-radius: 8px;
   margin-right: 4px;
   display: inline-block;
-  width: 30%;
+  width: 40%;
 }
 
 button {

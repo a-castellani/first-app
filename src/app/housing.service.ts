@@ -120,8 +120,6 @@ export class HousingService {
   }
 
   submitApplication(firstName: string, lastName: string, email: string) {
-    console.log(
-      `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`
-    );
+    return `${firstName} ${lastName}, your application was correctly recived. We'll answered you at ${email}.`;
   }
 }

@@ -1,4 +1,10 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Renderer2,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
@@ -25,14 +31,18 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       <section class="listing-features">
         <h2 class="section-heading">About this housing location</h2>
         <ul>
-          <li>Units available: {{ housingLocation?.availableUnits }}</li>
-          <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
           <li>
-            Does this location have laundry: {{ housingLocation?.laundry }}
+            <i class="fa-solid fa-house"></i>
+            {{ housingLocation?.availableUnits }}
+          </li>
+          <li><i class="fa-solid fa-wifi"></i> {{ housingLocation?.wifi }}</li>
+          <li>
+            <i class="fa-solid fa-person-swimming"></i>
+            {{ housingLocation?.laundry }}
           </li>
         </ul>
       </section>
-      <section class="listing-apply">
+      <section [hidden]="isShowDiv" class="listing-apply">
         <h2 class="section-heading">Apply now to live here</h2>
         <form [formGroup]="applyForm" (submit)="submitApplication()">
           <label for="first-name">First Name</label>
@@ -45,6 +55,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           <input id="email" type="email" formControlName="email" />
           <button type="submit" class="primary">Apply now</button>
         </form>
+      </section>
+      <section>
+        <div class="one"></div>
       </section>
     </article>
   `,
@@ -60,17 +73,41 @@ export class DetailsComponent {
     email: new FormControl(''),
   });
 
-  constructor() {
+  constructor(private elementRef: ElementRef) {
     const housingLocationId = Number(this.route.snapshot.params['id']);
     this.housingLocation =
       this.housingService.getHousingLocationById(housingLocationId);
   }
 
+  ngAfterViewInit() {}
+
+  // submitApplication() {
+  //   this.housingService.submitApplication(
+  //     this.applyForm.value.firstName ?? '',
+  //     this.applyForm.value.lastName ?? '',
+  //     this.applyForm.value.email ?? ''
+  //   );
+  // }
   submitApplication() {
-    this.housingService.submitApplication(
+    this.getSubmitApplication(
       this.applyForm.value.firstName ?? '',
       this.applyForm.value.lastName ?? '',
       this.applyForm.value.email ?? ''
     );
+    this.toggleDisplayDiv();
+  }
+  getSubmitApplication(firstName: string, lastName: string, email: string) {
+    const appGretting = `
+    <h1>${firstName} ${lastName} your application was correctly recived. We'll answer you at ${email} asap.</h1>
+    `;
+    const d1 = this.elementRef.nativeElement.querySelector('.one');
+    d1.insertAdjacentHTML('beforeend', appGretting);
+    return appGretting;
+  }
+
+  isShowDiv = false;
+
+  toggleDisplayDiv() {
+    this.isShowDiv = !this.isShowDiv;
   }
 }

@@ -37,6 +37,8 @@
 
 li {
   list-style-type: none;
+  display: inline-block;
+  margin-right: 2rem;
 }
 
 .listing-apply .section-heading {
@@ -64,6 +66,13 @@ input {
   border-left: none;
   border-bottom: solid 0.3px;
 }
+
+.one {
+  color: var(--secondary-color);
+  font-size: 24pt;
+  margin-top: 2rem;
+}
+
 @media (max-width: 1024px) {
   .listing-photo {
     width: 100%;

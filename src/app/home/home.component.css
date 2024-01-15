@@ -50,10 +50,16 @@ button {
   input[type="text"] {
     width: 70%;
   }
+  form {
+    width: 70%;
+  }
 }
 
 @media (max-width: 499px) {
   .results {
     grid-template-columns: 1fr;
+  }
+  form {
+    width: 70%;
   }
 }

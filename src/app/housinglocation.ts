@@ -5,6 +5,8 @@ export interface HousingLocation {
   state: string;
   photo: string;
   availableUnits: number;
+  bathrooms: number;
   wifi: string;
   laundry: string;
+  numeros: [number, number, number];
 }

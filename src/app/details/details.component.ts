@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Renderer2,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
@@ -22,6 +16,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
         [src]="housingLocation?.photo"
         alt="Exterior photo of {{ housingLocation?.name }}"
       />
+      <!-- <p>
+        {{ housingLocation?.numeros }}
+        {{ displayPhotoLeft(housingLocation?.numeros) }}
+      </p>
+      <div (click)="displayPhotoLeft(housingLocation?.numeros)">←</div>
+      <div (click)="displayPhotoRight(housingLocation?.numeros)">→</div> -->
       <section class="listing-description">
         <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
         <p class="listing-location">
@@ -37,7 +37,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           </li>
           <li>
             <i class="fa-solid fa-bath"></i>
-            {{ housingLocation?.availableUnits }}
+            {{ housingLocation?.bathrooms }}
           </li>
           <li><i class="fa-solid fa-wifi"></i> {{ housingLocation?.wifi }}</li>
           <li>
@@ -49,13 +49,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       <section [hidden]="isShowDiv" class="listing-apply">
         <h2 class="section-heading">Apply now to live here</h2>
         <form [formGroup]="applyForm" (submit)="submitApplication()">
-          <label for="first-name">First Name</label>
+          <label for="first-name">First Name *</label>
           <input id="first-name" type="text" formControlName="firstName" />
 
-          <label for="last-name">Last Name</label>
+          <label for="last-name">Last Name *</label>
           <input id="last-name" type="text" formControlName="lastName" />
 
-          <label for="email">Email</label>
+          <label for="email">Email *</label>
           <input id="email" type="email" formControlName="email" />
           <button type="submit" class="primary">Apply now</button>
         </form>
@@ -83,8 +83,6 @@ export class DetailsComponent {
       this.housingService.getHousingLocationById(housingLocationId);
   }
 
-  ngAfterViewInit() {}
-
   // submitApplication() {
   //   this.housingService.submitApplication(
   //     this.applyForm.value.firstName ?? '',
@@ -102,7 +100,7 @@ export class DetailsComponent {
   }
   getSubmitApplication(firstName: string, lastName: string, email: string) {
     const appGretting = `
-    <h1>${firstName} ${lastName} your application was correctly recived. We'll answer you at ${email} asap.</h1>
+    <h1>${firstName} ${lastName} your application was correctly sent. We'll answer you at ${email} as soon as possible.</h1>
     `;
     const d1 = this.elementRef.nativeElement.querySelector('.one');
     d1.insertAdjacentHTML('beforeend', appGretting);
@@ -114,4 +112,25 @@ export class DetailsComponent {
   toggleDisplayDiv() {
     this.isShowDiv = !this.isShowDiv;
   }
+
+  // i = 0;
+  // currentNumber = 0;
+
+  // displayPhotoLeft(numeros: any) {
+  //   if (this.i === 0) console.log(numeros[this.i]);
+  //   if (this.i > 0) {
+  //     this.i--;
+  //     console.log(numeros[this.i]);
+  //   }
+  //   return numeros[this.i];
+  // }
+
+  // displayPhotoRight(numeros: any) {
+  //   if (this.i === numeros.length - 1) console.log(numeros[this.i]);
+  //   if (this.i < numeros.length - 1) {
+  //     this.i++;
+  //     console.log(numeros[this.i]);
+  //   }
+  //   return numeros[this.i];
+  // }
 }

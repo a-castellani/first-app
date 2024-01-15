@@ -105,3 +105,15 @@ input {
     height: 400px;
   }
 }
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .one {
+    width: 90%;
+  }
+}
+
+@media (max-width: 499px) {
+  .one {
+    width: 90%;
+  }
+}

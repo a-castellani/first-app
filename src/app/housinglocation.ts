@@ -8,5 +8,5 @@ export interface HousingLocation {
   bathrooms: number;
   wifi: string;
   laundry: string;
-  numeros: [number, number, number];
+  numeros: [string, string, string];
 }

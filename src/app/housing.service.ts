@@ -8,7 +8,7 @@ export class HousingService {
 
   protected housingLocationList: HousingLocation[] = [
     {
-      id: 0o1,
+      id: 17657652,
       name: 'Acme Fresh Start Housing',
       city: 'Chicago',
       state: 'IL',
@@ -17,7 +17,11 @@ export class HousingService {
       bathrooms: 3,
       wifi: 'Yes',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home1.jpeg`,
+        `../assets/living2.avif`,
+        `../assets/swimming2.avif`,
+      ],
     },
     {
       id: 1987234,
@@ -29,7 +33,11 @@ export class HousingService {
       bathrooms: 2,
       wifi: 'No',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home2.jpeg`,
+        `../assets/living2.avif`,
+        `../assets/swimming2.avif`,
+      ],
     },
     {
       id: 22876234,
@@ -41,7 +49,11 @@ export class HousingService {
       bathrooms: 4,
       wifi: 'No',
       laundry: 'No',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home8.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/living2.avif`,
+      ],
     },
     {
       id: 32348764,
@@ -53,7 +65,11 @@ export class HousingService {
       bathrooms: 2,
       wifi: 'Yes',
       laundry: 'No',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home4.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/living2.avif`,
+      ],
     },
     {
       id: 4234876,
@@ -65,7 +81,11 @@ export class HousingService {
       bathrooms: 2,
       wifi: 'Yes',
       laundry: 'No',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home5.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/living2.avif`,
+      ],
     },
     {
       id: 523489724,
@@ -77,7 +97,11 @@ export class HousingService {
       bathrooms: 1,
       wifi: 'Yes',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home6.jpeg`,
+        `../assets/living2.avif`,
+        `../assets/swimming2.avif`,
+      ],
     },
     {
       id: 627348,
@@ -89,7 +113,11 @@ export class HousingService {
       bathrooms: 3,
       wifi: 'Yes',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home7.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/swimming1.avif`,
+      ],
     },
     {
       id: 7234876234,
@@ -101,7 +129,11 @@ export class HousingService {
       bathrooms: 1,
       wifi: 'Yes',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home8.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/swimming1.avif`,
+      ],
     },
     {
       id: 8234234,
@@ -113,7 +145,11 @@ export class HousingService {
       bathrooms: 4,
       wifi: 'No',
       laundry: 'No',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home9.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/living2.avif`,
+      ],
     },
     {
       id: 92349234,
@@ -125,7 +161,11 @@ export class HousingService {
       bathrooms: 3,
       wifi: 'Yes',
       laundry: 'Yes',
-      numeros: [1, 2, 3],
+      numeros: [
+        `../assets/home10.jpeg`,
+        `../assets/living1.avif`,
+        `../assets/swimming1.avif`,
+      ],
     },
   ];
 

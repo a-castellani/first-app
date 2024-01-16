@@ -11,17 +11,30 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <article>
-      <img
+      <!-- <img
         class="listing-photo"
         [src]="housingLocation?.photo"
         alt="Exterior photo of {{ housingLocation?.name }}"
-      />
-      <!-- <p>
-        {{ housingLocation?.numeros }}
-        {{ displayPhotoLeft(housingLocation?.numeros) }}
-      </p>
-      <div (click)="displayPhotoLeft(housingLocation?.numeros)">←</div>
-      <div (click)="displayPhotoRight(housingLocation?.numeros)">→</div> -->
+      /> -->
+      <div class="container-photo">
+        <img
+          class="listing-photo"
+          [src]="getPhoto(housingLocation?.numeros)"
+          alt="Exterior photo of {{ housingLocation?.name }}"
+        />
+        <div
+          class="arrow-left"
+          (click)="displayPhotoLeft(housingLocation?.numeros)"
+        >
+          ←
+        </div>
+        <div
+          class="arrow-right"
+          (click)="displayPhotoRight(housingLocation?.numeros)"
+        >
+          →
+        </div>
+      </div>
       <section class="listing-description">
         <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
         <p class="listing-location">
@@ -91,6 +104,13 @@ export class DetailsComponent {
   //   );
   // }
   submitApplication() {
+    if (
+      !this.applyForm.value.firstName ||
+      !this.applyForm.value.lastName ||
+      !this.applyForm.value.email
+    )
+      return;
+
     this.getSubmitApplication(
       this.applyForm.value.firstName ?? '',
       this.applyForm.value.lastName ?? '',
@@ -113,24 +133,26 @@ export class DetailsComponent {
     this.isShowDiv = !this.isShowDiv;
   }
 
-  // i = 0;
-  // currentNumber = 0;
+  getPhoto(numeros: any) {
+    const appGretting = `${numeros[this.i]}`;
+    return appGretting;
+  }
 
-  // displayPhotoLeft(numeros: any) {
-  //   if (this.i === 0) console.log(numeros[this.i]);
-  //   if (this.i > 0) {
-  //     this.i--;
-  //     console.log(numeros[this.i]);
-  //   }
-  //   return numeros[this.i];
-  // }
+  i = 0;
 
-  // displayPhotoRight(numeros: any) {
-  //   if (this.i === numeros.length - 1) console.log(numeros[this.i]);
-  //   if (this.i < numeros.length - 1) {
-  //     this.i++;
-  //     console.log(numeros[this.i]);
-  //   }
-  //   return numeros[this.i];
-  // }
+  displayPhotoLeft(numeros: any) {
+    if (this.i > 0) {
+      this.i--;
+      console.log(numeros[this.i]);
+    }
+    return numeros[this.i];
+  }
+
+  displayPhotoRight(numeros: any) {
+    if (this.i < numeros.length - 1) {
+      this.i++;
+      console.log(numeros[this.i]);
+    }
+    return numeros[this.i];
+  }
 }

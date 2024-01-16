@@ -9,11 +9,26 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
   template: `
     <section class="listing">
-      <img
-        class="listing-photo"
-        [src]="housingLocation.photo"
-        alt="Exterior photo of {{ housingLocation.name }}"
-      />
+      <div class="container-photo">
+        <img
+          class="listing-photo"
+          [src]="getPhoto(housingLocation.numeros)"
+          alt="Exterior photo of {{ housingLocation.name }}"
+        />
+        <div
+          class="arrow-left"
+          (click)="displayPhotoLeft(housingLocation.numeros)"
+        >
+          ←
+        </div>
+        <div
+          class="arrow-right"
+          (click)="displayPhotoRight(housingLocation.numeros)"
+        >
+          →
+        </div>
+      </div>
+
       <h2 class="listing-heading">{{ housingLocation.name }}</h2>
       <p class="listing-location">
         {{ housingLocation.city }}, {{ housingLocation.state }}
@@ -25,4 +40,25 @@ import { RouterModule } from '@angular/router';
 })
 export class HousingLocationComponent {
   @Input() housingLocation!: HousingLocation;
+
+  getPhoto(numeros: any) {
+    const appGretting = `${numeros[this.i]}`;
+    return appGretting;
+  }
+
+  i = 0;
+
+  displayPhotoLeft(numeros: any) {
+    if (this.i > 0) {
+      this.i--;
+    }
+    return numeros[this.i];
+  }
+
+  displayPhotoRight(numeros: any) {
+    if (this.i < numeros.length - 1) {
+      this.i++;
+    }
+    return numeros[this.i];
+  }
 }

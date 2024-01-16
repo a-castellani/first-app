@@ -2,12 +2,37 @@ article {
   margin: 1rem;
 }
 
+.container-photo {
+  float: right;
+  width: 50%;
+  position: relative;
+}
+
 .listing-photo {
   height: 600px;
-  width: 50%;
+  width: 100%;
   object-fit: cover;
   border-radius: 30px;
-  float: right;
+}
+
+.arrow-left {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  font-size: 1.7rem;
+}
+
+.arrow-right {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  font-size: 1.7rem;
 }
 
 .listing-heading {

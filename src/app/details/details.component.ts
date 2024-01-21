@@ -71,6 +71,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           <label for="email">Email *</label>
           <input id="email" type="email" formControlName="email" />
           <button type="submit" class="primary">Apply now</button>
+          <div class="applyAlert" *ngIf="showAlert">
+            * Enter all the obligatory items before applying.
+          </div>
         </form>
       </section>
       <section>
@@ -103,20 +106,29 @@ export class DetailsComponent {
   //     this.applyForm.value.email ?? ''
   //   );
   // }
+
+  public showAlert = false;
   submitApplication() {
     if (
       !this.applyForm.value.firstName ||
       !this.applyForm.value.lastName ||
       !this.applyForm.value.email
     )
-      return;
+      this.showAlert = true;
 
-    this.getSubmitApplication(
-      this.applyForm.value.firstName ?? '',
-      this.applyForm.value.lastName ?? '',
-      this.applyForm.value.email ?? ''
-    );
-    this.toggleDisplayDiv();
+    if (
+      this.applyForm.value.firstName &&
+      this.applyForm.value.lastName &&
+      this.applyForm.value.email
+    ) {
+      this.showAlert = false;
+      this.getSubmitApplication(
+        this.applyForm.value.firstName ?? '',
+        this.applyForm.value.lastName ?? '',
+        this.applyForm.value.email ?? ''
+      );
+      this.toggleDisplayDiv();
+    }
   }
   getSubmitApplication(firstName: string, lastName: string, email: string) {
     const appGretting = `

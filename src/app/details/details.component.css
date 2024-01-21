@@ -135,10 +135,22 @@ input {
   width: 40%;
 }
 
+.applyAlert {
+  width: 400px;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.3rem;
+  color: rgb(188, 85, 85);
+}
+
 @media (max-width: 1024px) {
   .listing-photo {
     width: 100%;
     height: 400px;
+  }
+  .container-photo {
+    float: right;
+    width: 100%;
+    position: relative;
   }
 }
 
